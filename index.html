@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sombrero Mágico - Sorteo Aleatorio Elegante</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <main id="mainContent">
+            <header>
+                <h1>Sombrero Mágico</h1>
+                <p>Selecciona un nombre al azar con un toque de magia ✨</p>
+                <button id="darkModeToggle" class="secondary-button">🌙 Modo Oscuro</button>
+            </header>
+            <section class="input-section">
+                <label for="nameInput">Añade nombres uno por uno (con peso o probabilidad):</label>
+                <small>Nota: Si todos los nombres deben tener la misma probabilidad, deja el peso en 1 o asigna una probabilidad igual (se normalizará automáticamente).</small>
+                <div class="name-input-wrapper">
+                    <input type="text" id="nameInput" placeholder="Escribe un nombre...">
+                    <select id="weightType">
+                        <option value="weight">Peso</option>
+                        <option value="probability">Probabilidad (%)</option>
+                    </select>
+                    <input type="number" id="weightInput" min="1" value="1" placeholder="Peso o % (default 1)">
+                    <button id="addButton">Agregar</button>
+                </div>
+                <div id="namesList" class="names-list"></div>
+                <button id="clearButton" class="secondary-button">Limpiar nombres</button>
+                <label for="itemInput">Añade items asociados (ej. preguntas, números):</label>
+                <div class="name-input-wrapper">
+                    <input type="text" id="itemInput" placeholder="Escribe un item...">
+                    <button id="addItemButton">Agregar Item</button>
+                </div>
+                <div id="itemsList" class="names-list"></div>
+                <button id="clearItemsButton" class="secondary-button">Limpiar items</button>
+                <label for="numWinners">Número de ganadores:</label>
+                <input type="number" id="numWinners" min="1" value="1" max="10">
+            </section>
+            <button id="startButton">¡Agitar el Sombrero!</button>
+            <div class="content-row">
+                <section class="hat-section">
+                    <div id="hatContainer">
+                        <!-- SVG más realista de sombrero de mago -->
+                        <svg id="hat" viewBox="0 0 400 500" width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="hatBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#1c1c1c" stop-opacity="1" />
+                                    <stop offset="50%" stop-color="#000000" stop-opacity="0.8" />
+                                    <stop offset="100%" stop-color="#0a0a0a" stop-opacity="1" />
+                                </linearGradient>
+                                <linearGradient id="hatBrim" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#2a2a2a" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#000000" stop-opacity="1" />
+                                </linearGradient>
+                                <linearGradient id="ribbon" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#8B0000" stop-opacity="1" />
+                                    <stop offset="50%" stop-color="#A52A2A" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#8B0000" stop-opacity="1" />
+                                </linearGradient>
+                                <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3" />
+                                </filter>
+                                <pattern id="texture" patternUnits="userSpaceOnUse" width="20" height="20">
+                                    <rect width="20" height="20" fill="#000" />
+                                    <path d="M0 0 L20 20 M20 0 L0 20" stroke="#111" stroke-width="0.5" opacity="0.5" />
+                                </pattern>
+                            </defs>
+                            <!-- Brim (ala) con sombra y textura realista -->
+                            <ellipse cx="200" cy="450" rx="200" ry="40" fill="url(#hatBrim)" stroke="#111" stroke-width="2" filter="url(#shadow)" />
+                            <ellipse cx="200" cy="450" rx="180" ry="35" fill="url(#texture)" opacity="0.2" />
+                            <!-- Cuerpo del sombrero con gradiente 3D -->
+                            <path d="M100 450 Q120 200 150 100 H250 Q280 200 300 450 Z" fill="url(#hatBody)" stroke="#111" stroke-width="3" filter="url(#shadow)" />
+                            <path d="M100 450 Q120 200 150 100 H250 Q280 200 300 450 Z" fill="url(#texture)" opacity="0.3" />
+                            <!-- Parte superior redondeada -->
+                            <ellipse cx="200" cy="100" rx="60" ry="20" fill="url(#hatBody)" stroke="#111" stroke-width="2" />
+                            <ellipse cx="200" cy="100" rx="55" ry="18" fill="url(#texture)" opacity="0.2" />
+                            <!-- Cinta roja con brillo -->
+                            <rect x="140" y="350" width="120" height="25" fill="url(#ribbon)" rx="12" stroke="#660000" stroke-width="1" filter="url(#shadow)" />
+                            <path d="M140 350 Q160 340 200 350 Q240 340 260 350" fill="none" stroke="#CC0000" stroke-width="2" opacity="0.6" />
+                            <!-- Detalles mágicos: estrellas o brillos -->
+                            <circle cx="200" cy="80" r="8" fill="#ffd700" opacity="0.8" filter="url(#shadow)" />
+                            <circle cx="180" cy="90" r="4" fill="#ffd700" opacity="0.6" />
+                            <circle cx="220" cy="90" r="4" fill="#ffd700" opacity="0.6" />
+                        </svg>
+                        <div id="particles"></div>
+                    </div>
+                </section>
+                <section id="result" class="result-section">
+                    <h2>Ganadores:</h2>
+                    <ul id="winnersList"></ul>
+                    <p id="probability"></p>
+                    <button id="resetButton">Reiniciar</button>
+                </section>
+            </div>
+        </main>
+        <footer class="analytics-section">
+            <h3>Analíticas Básicas</h3>
+            <p id="drawsToday">Sorteos hoy: 0</p>
+            <h4>Historial reciente:</h4>
+            <ul id="historyList"></ul>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
