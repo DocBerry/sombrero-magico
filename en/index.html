@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PX5H3VPD');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Hat - Free Random Name Picker 2025</title>
+    <meta name="description" content="Use Magic Hat for free random name picking with weight and probability. Perfect for events, games, and more! Try it now!">
+    <meta name="keywords" content="random name picker, name raffle, online raffle tool, free random name generator, random name draw 2025">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Your Name">
+    <meta name="google-adsense-account" content="ca-pub-1065700514800539">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Magic Hat",
+        "description": "Free tool for random name picking with weight and probability.",
+        "url": "https://sorteomagico.com/en/",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX5H3VPD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a13a2955-1e81-4686-9252-7d8e4aa68fcd" data-blockingmode="auto" type="text/javascript"></script>
+    <div class="container">
+        <main id="mainContent">
+            <header>
+                <h1>Magic Hat</h1>
+                <nav>
+                    <a href="index.html">Home</a> |
+                    <a href="about.html">About</a> |
+                    <a href="howto.html">How to Use</a>
+                </nav>
+                <p>Pick a random name with a touch of magic ✨</p>
+                <button id="darkModeToggle" class="secondary-button">🌙 Dark Mode</button>
+            </header>
+            <section class="input-section">
+                <h2>Add Participants</h2>
+                <label for="nameInput">Add names one by one (with weight or probability):</label>
+                <small>Note: If all names should have equal probability, leave weight at 1 or set equal probability (will be normalized automatically).</small>
+                <div class="name-input-wrapper">
+                    <input type="text" id="nameInput" placeholder="Enter a name...">
+                    <select id="weightType">
+                        <option value="weight">Weight</option>
+                        <option value="probability">Probability (%)</option>
+                    </select>
+                    <input type="number" id="weightInput" min="1" value="1" placeholder="Weight or % (default 1)">
+                    <button id="addButton">Add</button>
+                </div>
+                <div id="namesList" class="names-list"></div>
+                <button id="clearButton" class="secondary-button">Clear Names</button>
+                <label for="itemInput">Add associated items (e.g., questions, numbers):</label>
+                <div class="name-input-wrapper">
+                    <input type="text" id="itemInput" placeholder="Enter an item...">
+                    <button id="addItemButton">Add Item</button>
+                </div>
+                <div id="itemsList" class="names-list"></div>
+                <button id="clearItemsButton" class="secondary-button">Clear Items</button>
+                <label for="numWinners">Number of winners:</label>
+                <input type="number" id="numWinners" min="1" value="1" max="10">
+            </section>
+            <button id="startButton">Shake the Hat!</button>
+            <div class="content-row">
+                <section class="hat-section">
+                    <div id="hatContainer">
+                        <!-- SVG más realista de sombrero de mago -->
+                        <svg id="hat" viewBox="0 0 400 500" width="400" height="500" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="hatBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#1c1c1c" stop-opacity="1" />
+                                    <stop offset="50%" stop-color="#000000" stop-opacity="0.8" />
+                                    <stop offset="100%" stop-color="#0a0a0a" stop-opacity="1" />
+                                </linearGradient>
+                                <linearGradient id="hatBrim" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#2a2a2a" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#000000" stop-opacity="1" />
+                                </linearGradient>
+                                <linearGradient id="ribbon" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#8B0000" stop-opacity="1" />
+                                    <stop offset="50%" stop-color="#A52A2A" stop-opacity="1" />
+                                    <stop offset="100%" stop-color="#8B0000" stop-opacity="1" />
+                                </linearGradient>
+                                <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3" />
+                                </filter>
+                                <pattern id="texture" patternUnits="userSpaceOnUse" width="20" height="20">
+                                    <rect width="20" height="20" fill="#000" />
+                                    <path d="M0 0 L20 20 M20 0 L0 20" stroke="#111" stroke-width="0.5" opacity="0.5" />
+                                </pattern>
+                            </defs>
+                            <!-- Brim (ala) con sombra y textura realista -->
+                            <ellipse cx="200" cy="450" rx="200" ry="40" fill="url(#hatBrim)" stroke="#111" stroke-width="2" filter="url(#shadow)" />
+                            <ellipse cx="200" cy="450" rx="180" ry="35" fill="url(#texture)" opacity="0.2" />
+                            <!-- Cuerpo del sombrero con gradiente 3D -->
+                            <path d="M100 450 Q120 200 150 100 H250 Q280 200 300 450 Z" fill="url(#hatBody)" stroke="#111" stroke-width="3" filter="url(#shadow)" />
+                            <path d="M100 450 Q120 200 150 100 H250 Q280 200 300 450 Z" fill="url(#texture)" opacity="0.3" />
+                            <!-- Parte superior redondeada -->
+                            <ellipse cx="200" cy="100" rx="60" ry="20" fill="url(#hatBody)" stroke="#111" stroke-width="2" />
+                            <ellipse cx="200" cy="100" rx="55" ry="18" fill="url(#texture)" opacity="0.2" />
+                            <!-- Cinta roja con brillo -->
+                            <rect x="140" y="350" width="120" height="25" fill="url(#ribbon)" rx="12" stroke="#660000" stroke-width="1" filter="url(#shadow)" />
+                            <path d="M140 350 Q160 340 200 350 Q240 340 260 350" fill="none" stroke="#CC0000" stroke-width="2" opacity="0.6" />
+                            <!-- Detalles mágicos: estrellas o brillos -->
+                            <circle cx="200" cy="80" r="8" fill="#ffd700" opacity="0.8" filter="url(#shadow)" />
+                            <circle cx="180" cy="90" r="4" fill="#ffd700" opacity="0.6" />
+                            <circle cx="220" cy="90" r="4" fill="#ffd700" opacity="0.6" />
+                        </svg>
+                        <div id="particles"></div>
+                    </div>
+                </section>
+                <section id="result" class="result-section">
+                    <h2>Winners:</h2>
+                    <ul id="winnersList"></ul>
+                    <p id="probability"></p>
+                    <button id="resetButton">Reset</button>
+                </section>
+            </div>
+        </main>
+        <footer class="analytics-section">
+            <h3>Basic Analytics</h3>
+            <p id="drawsToday">Draws today: 0</p>
+            <h4>Recent History:</h4>
+            <ul id="historyList"></ul>
+            <p><a href="about.html">About</a> | <a href="howto.html">How to Use</a></p>
+        </footer>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
